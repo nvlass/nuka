@@ -186,6 +186,7 @@
          (if (done? graph)
            (do
              (log-fn "Plan done!")
+             (.shutdown pool)
              state)
            (let [to-submit (->> (set/difference
                                  (-> graph free-tasks set)
